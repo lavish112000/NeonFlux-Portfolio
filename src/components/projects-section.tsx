@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import ProjectDetailView from "./project-detail-view";
 import ProjectGrid from "./project-grid";
 import { Skeleton } from "./ui/skeleton";
+import ProjectDetails from "./project-details";
 
 export default function ProjectsSection() {
   const [isPending, startTransition] = useTransition();
@@ -61,6 +62,8 @@ export default function ProjectsSection() {
           </div>
         </form>
       </div>
+
+      <ProjectDetails />
 
       <div className="p-4 md:p-8 rounded-2xl glassmorphism">
         {isPending ? (

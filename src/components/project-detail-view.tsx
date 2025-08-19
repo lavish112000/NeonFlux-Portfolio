@@ -31,17 +31,8 @@ export default function ProjectDetailView({ projectData }: ProjectDetailViewProp
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
       <div className="lg:col-span-3 space-y-6">
-        <div className="aspect-video w-full rounded-lg overflow-hidden relative border-2 border-primary/20 glowing-border">
-          <Image
-            src="https://placehold.co/1280x720/0A192F/4287f5"
-            alt="Project Main Image"
-            fill
-            className="object-cover"
-            data-ai-hint="futuristic interface"
-          />
-        </div>
         <div className="space-y-4">
-          <h3 className="text-2xl font-bold text-white">Project Text</h3>
+          <h3 className="text-2xl font-bold text-white">Project Details from AI</h3>
           {renderContent()}
         </div>
       </div>
