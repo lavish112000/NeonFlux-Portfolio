@@ -12,7 +12,7 @@ interface ProjectCardProps {
 export default function ProjectCard({ title, imageUrl, hint, projectUrl }: ProjectCardProps) {
   return (
     <Link href={projectUrl} passHref>
-      <Card className="glassmorphism overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2 hover:glowing-border cursor-pointer">
+      <Card className="glassmorphism overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2 hover:glowing-border hover:scale-105 cursor-pointer">
         <CardHeader className="p-0">
           <div className="aspect-video relative">
             <Image

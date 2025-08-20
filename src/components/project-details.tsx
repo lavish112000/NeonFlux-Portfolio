@@ -23,7 +23,7 @@ const features = [
 
 export default function ProjectDetails() {
   return (
-    <Card className="glassmorphism overflow-hidden">
+    <Card className="glassmorphism overflow-hidden hover-pop">
       <CardHeader>
         <CardTitle className="text-3xl font-bold glowing-text">Firebase Studio Project</CardTitle>
       </CardHeader>
@@ -42,7 +42,7 @@ export default function ProjectDetails() {
               <h3 className="text-xl font-semibold text-white mb-4">Technologies Used</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
                 {technologies.map((tech) => (
-                  <div key={tech.name} className="flex flex-col items-center justify-center p-4 glassmorphism rounded-lg gap-2">
+                  <div key={tech.name} className="flex flex-col items-center justify-center p-4 glassmorphism rounded-lg gap-2 hover-pop">
                     {tech.icon}
                     <span className="text-sm font-medium text-gray-300">{tech.name}</span>
                   </div>

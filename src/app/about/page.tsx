@@ -26,7 +26,7 @@ const AboutPage: React.FC = () => {
             <Link href="/"><ArrowLeft className="mr-2 h-4 w-4" /> Back to Portfolio</Link>
           </Button>
         </div>
-        <Card className="glassmorphism overflow-hidden">
+        <Card className="glassmorphism overflow-hidden hover-pop">
           <CardHeader>
             <CardTitle className="text-3xl font-bold glowing-text">About Me</CardTitle>
           </CardHeader>
@@ -61,7 +61,7 @@ const AboutPage: React.FC = () => {
                 <h3 className="text-xl font-semibold text-white mb-4">My Skillset</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
                   {skills.map((skill) => (
-                    <div key={skill.name} className="flex flex-col items-center justify-center p-4 glassmorphism rounded-lg gap-2">
+                    <div key={skill.name} className="flex flex-col items-center justify-center p-4 glassmorphism rounded-lg gap-2 hover-pop">
                       {skill.icon}
                       <span className="text-sm font-medium text-gray-300">{skill.name}</span>
                     </div>
