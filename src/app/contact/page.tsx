@@ -15,13 +15,13 @@ const contactOptions = [
   {
     name: "LinkedIn",
     icon: <Linkedin className="h-16 w-16 text-sky-500" />,
-    url: "https://linkedin.com",
+    url: "https://www.linkedin.com/in/lalit11/",
     handle: "connect with me"
   },
   {
     name: "Email",
     icon: <Mail className="h-16 w-16 text-rose-500" />,
-    url: "mailto:developer@example.com",
+    url: "mailto:lalitchoudhary112000@gmail.com",
     handle: "send a message"
   },
 ];
