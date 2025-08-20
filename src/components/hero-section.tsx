@@ -2,11 +2,17 @@
 
 import AnimatedLogo from "@/components/animated-logo";
 import GlowingLine from "@/components/glowing-line";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function HeroSection() {
   const [activeLink, setActiveLink] = useState("Work");
-  const navLinks = ["Work", "About", "Services", "Contact"];
+  const navLinks = [
+    { name: "Work", href: "#work" },
+    { name: "About", href: "/about" }, 
+    { name: "Services", href: "#" }, 
+    { name: "Contact", href: "#" }
+  ];
 
   return (
     <section className="relative text-center py-20 md:py-32">
@@ -16,18 +22,19 @@ export default function HeroSection() {
       </h1>
       <nav className="flex justify-center items-center space-x-4 md:space-x-8 mb-16 z-10 relative">
         {navLinks.map((link) => (
-          <button
-            key={link}
-            onClick={() => setActiveLink(link)}
+          <Link
+            key={link.name}
+            href={link.href}
+            onClick={() => setActiveLink(link.name)}
             className={`text-lg md:text-xl font-medium relative transition-colors ${
-              activeLink === link ? "text-primary" : "text-gray-400 hover:text-white"
+              activeLink === link.name ? "text-primary" : "text-gray-400 hover:text-white"
             }`}
           >
-            {link}
-            {activeLink === link && (
+            {link.name}
+            {activeLink === link.name && (
               <span className="absolute -bottom-2 left-0 w-full h-1 bg-primary rounded-full glowing-border"></span>
             )}
-          </button>
+          </Link>
         ))}
       </nav>
       <div className="flex justify-center z-10 relative">

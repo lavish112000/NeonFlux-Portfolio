@@ -3,27 +3,31 @@
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import Link from "next/link";
 
 export default function Header() {
-  const navLinks = ["Case", "Portfolio"];
+  const navLinks = [
+    { name: "Portfolio", href: "/" },
+    { name: "About", href: "/about" },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full glassmorphism">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
-          <div className="text-2xl font-bold glowing-text text-white">NOWS</div>
+          <Link href="/" className="text-2xl font-bold glowing-text text-white">NOWS</Link>
           
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a key={link} href="#" className="text-lg text-gray-300 hover:text-primary transition-colors">
-                {link}
-              </a>
+              <Link key={link.name} href={link.href} className="text-lg text-gray-300 hover:text-primary transition-colors">
+                {link.name}
+              </Link>
             ))}
           </nav>
 
           <div className="hidden md:block">
-            <Button className="font-bold text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity">
-              Shiva
+            <Button asChild className="font-bold text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity">
+              <Link href="#">Contact</Link>
             </Button>
           </div>
 
@@ -39,13 +43,13 @@ export default function Header() {
                 <div className="flex flex-col items-center justify-center h-full">
                   <nav className="flex flex-col items-center space-y-8 mb-8">
                     {navLinks.map((link) => (
-                      <a key={link} href="#" className="text-2xl text-gray-300 hover:text-primary transition-colors">
-                        {link}
-                      </a>
+                      <Link key={link.name} href={link.href} className="text-2xl text-gray-300 hover:text-primary transition-colors">
+                        {link.name}
+                      </Link>
                     ))}
                   </nav>
-                  <Button className="font-bold text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity">
-                    Shiva
+                  <Button asChild className="font-bold text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity">
+                     <Link href="#">Contact</Link>
                   </Button>
                 </div>
               </SheetContent>
