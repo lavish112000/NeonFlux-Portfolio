@@ -2,25 +2,25 @@ import ProjectCard from "./project-card";
 
 const projects = [
   {
-    title: "Project Alpha",
+    title: "Cosmic Video Player",
     imageUrl: "https://placehold.co/600x400/0A192F/A239CA",
     hint: "abstract data",
     projectUrl: "/alpha"
   },
   {
-    title: "Project Beta",
+    title: "Stealth Coder",
     imageUrl: "https://placehold.co/600x400/0A192F/A239CA",
     hint: "network visualization",
     projectUrl: "/beta"
   },
   {
-    title: "Project Gamma",
+    title: "LinguaChat AI",
     imageUrl: "https://placehold.co/600x400/0A192F/A239CA",
     hint: "code terminal",
     projectUrl: "/gamma"
   },
   {
-    title: "Project Delta",
+    title: "Resume Parser",
     imageUrl: "https://placehold.co/600x400/0A192F/A239CA",
     hint: "dashboard ui",
     projectUrl: "/delta"
