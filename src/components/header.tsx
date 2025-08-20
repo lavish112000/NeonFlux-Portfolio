@@ -9,6 +9,8 @@ export default function Header() {
   const navLinks = [
     { name: "Portfolio", href: "/" },
     { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -24,12 +26,6 @@ export default function Header() {
               </Link>
             ))}
           </nav>
-
-          <div className="hidden md:block">
-            <Button asChild className="font-bold text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity">
-              <Link href="#">Contact</Link>
-            </Button>
-          </div>
 
           <div className="md:hidden">
             <Sheet>
@@ -48,9 +44,6 @@ export default function Header() {
                       </Link>
                     ))}
                   </nav>
-                  <Button asChild className="font-bold text-white bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity">
-                     <Link href="#">Contact</Link>
-                  </Button>
                 </div>
               </SheetContent>
             </Sheet>

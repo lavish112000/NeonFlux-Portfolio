@@ -10,8 +10,8 @@ export default function HeroSection() {
   const navLinks = [
     { name: "Work", href: "#work" },
     { name: "About", href: "/about" }, 
-    { name: "Services", href: "#" }, 
-    { name: "Contact", href: "#" }
+    { name: "Services", href: "/services" }, 
+    { name: "Contact", href: "/contact" }
   ];
 
   return (
