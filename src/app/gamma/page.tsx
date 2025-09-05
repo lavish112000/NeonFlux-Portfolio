@@ -61,6 +61,7 @@ const GammaPage: React.FC = () => {
                                 alt="LinguaChat AI"
                                 fill
                                 className="object-cover"
+                                unoptimized={true}
                                 data-ai-hint="ai chatbot interface"
                                 />
                             </div>
