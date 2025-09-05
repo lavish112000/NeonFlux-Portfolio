@@ -20,6 +20,7 @@ export default function ProjectCard({ title, imageUrl, hint, projectUrl }: Proje
               alt={title}
               fill
               className="object-cover"
+              unoptimized={true}
               data-ai-hint={hint}
             />
           </div>
