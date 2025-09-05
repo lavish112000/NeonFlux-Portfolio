@@ -60,6 +60,7 @@ const DeltaPage: React.FC = () => {
                                 alt="Resume Parser"
                                 fill
                                 className="object-cover"
+                                unoptimized={true}
                                 data-ai-hint="data extraction interface"
                             />
                         </div>
