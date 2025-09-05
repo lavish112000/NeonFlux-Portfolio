@@ -56,6 +56,7 @@ export default function ProjectDetails() {
               alt="Firebase Studio Project"
               fill
               className="object-cover"
+              unoptimized={true}
               data-ai-hint="futuristic dashboard"
             />
           </div>
