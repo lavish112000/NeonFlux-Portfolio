@@ -59,6 +59,7 @@ const ProjectAlphaPage: React.FC = () => {
                   alt="Cosmic Video Player"
                   fill
                   className="object-cover"
+                  unoptimized={true}
                   data-ai-hint="futuristic video player"
                 />
               </div>
