@@ -59,6 +59,7 @@ const ProjectBetaPage: React.FC = () => {
                   alt="Stealth Coder"
                   fill
                   className="object-cover"
+                  unoptimized={true}
                   data-ai-hint="secure code interface"
                 />
               </div>
