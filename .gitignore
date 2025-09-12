@@ -12,6 +12,7 @@
 
 # testing
 /coverage
+/jest-coverage/
 
 # next.js
 /.next/
@@ -43,3 +44,20 @@ next-env.d.ts
 # firebase
 firebase-debug.log
 firestore-debug.log
+
+# ESLint cache
+.eslintcache
+
+# Prettier cache
+.prettiercache
+
+# IDE files
+.vscode/settings.json.user
+.idea/
+
+# OS files
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp

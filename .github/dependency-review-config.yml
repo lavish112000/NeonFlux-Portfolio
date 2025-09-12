@@ -1,0 +1,21 @@
+severity-threshold: moderate
+base-ref: main
+head-ref: HEAD
+config-file: .github/dependency-review-config.yml
+comment-summary-in-pr: true
+fail-on-severity: moderate
+allow-dependencies:
+  - name: "next"
+    version: ">=15.0.0"
+  - name: "react"
+    version: ">=18.0.0"
+  - name: "typescript"
+    version: ">=5.0.0"
+deny-packages:
+  - name: "lodash"
+    reason: "Use native JavaScript methods or specific lodash packages"
+  - name: "moment"
+    reason: "Use date-fns instead for better tree-shaking"
+deny-groups:
+  - name: "deprecated"
+    reason: "Contains deprecated packages"
