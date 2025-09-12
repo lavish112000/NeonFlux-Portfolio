@@ -44,7 +44,7 @@ export default function ProjectsSection() {
     <section id='work' className='py-16 md:py-24 space-y-12'>
       <div className='flex flex-col md:flex-row justify-between items-center gap-4'>
         <h2 className='text-4xl md:text-5xl font-bold tracking-tight'>
-          Projects
+          My Work
         </h2>
         <form action={onSearch} className='w-full md:w-1/3'>
           <div className='relative'>
