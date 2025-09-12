@@ -13,17 +13,32 @@ import { Button } from '@/components/ui/button';
 import { handleSearch } from '@/app/actions';
 import type { CurateProjectsOutput } from '@/ai/flows/project-curation';
 import { useToast } from '@/hooks/use-toast';
+import { useDebouncedSearch } from '@/hooks/use-cache';
 
 export default function ProjectsSection() {
   const [isPending, startTransition] = useTransition();
   const [result, setResult] = useState<CurateProjectsOutput | null>(null);
   const { toast } = useToast();
 
+  // Use debounced search with caching
+  const { results: searchResults, loading: searchLoading, search } = useDebouncedSearch(
+    async (query: string) => {
+      const formData = new FormData();
+      formData.append('searchQuery', query);
+      const searchResult = await handleSearch(formData);
+      return searchResult && 'projectDetails' in searchResult ? [searchResult] : [];
+    },
+    500 // 500ms debounce
+  );
+
   const onSearch = (formData: FormData) => {
     const query = formData.get('searchQuery') as string;
     if (!query) {
+      setResult(null);
       return;
     }
+
+    search(query);
 
     startTransition(async () => {
       const searchResult = await handleSearch(formData);
