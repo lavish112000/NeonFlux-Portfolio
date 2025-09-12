@@ -1,12 +1,15 @@
-"use server";
+'use server';
 
-import { curateProjects, type CurateProjectsInput } from "@/ai/flows/project-curation";
+import {
+  curateProjects,
+  type CurateProjectsInput,
+} from '@/ai/flows/project-curation';
 
 export async function handleSearch(formData: FormData) {
-  const searchQuery = formData.get("searchQuery");
+  const searchQuery = formData.get('searchQuery');
 
-  if (typeof searchQuery !== "string" || !searchQuery) {
-    return { error: "Invalid search query" };
+  if (typeof searchQuery !== 'string' || !searchQuery) {
+    return { error: 'Invalid search query' };
   }
 
   try {
@@ -14,7 +17,7 @@ export async function handleSearch(formData: FormData) {
     const result = await curateProjects(input);
     return result;
   } catch (error) {
-    console.error("AI curation failed:", error);
-    return { error: "Failed to curate projects." };
+    console.error('AI curation failed:', error);
+    return { error: 'Failed to curate projects.' };
   }
 }
