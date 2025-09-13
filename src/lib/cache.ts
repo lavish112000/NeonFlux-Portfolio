@@ -1,5 +1,7 @@
 // Cache management utilities for the NeonFlux Portfolio
 
+import { logger } from './logger';
+
 export interface CacheConfig {
   ttl: number;
   maxSize: number;
@@ -31,10 +33,14 @@ export class CacheManager {
     if (!this.caches.has(namespace)) {
       this.caches.set(namespace, new Map());
     }
-    return this.caches.get(namespace)!;
+    const cache = this.caches.get(namespace);
+    if (!cache) {
+      throw new Error(`Failed to get or create cache for namespace: ${namespace}`);
+    }
+    return cache;
   }
 
-  set(namespace: string, key: string, value: any, ttl?: number): void {
+  set(namespace: string, key: string, value: unknown, ttl?: number): void {
     const cache = this.getCache(namespace);
     const entry: CacheEntry = {
       value,
@@ -55,7 +61,9 @@ export class CacheManager {
     const cache = this.getCache(namespace);
     const entry = cache.get(key);
 
-    if (!entry) return null;
+    if (!entry) {
+      return null;
+    }
 
     // Check if expired
     if (Date.now() - entry.timestamp > entry.ttl) {
@@ -71,7 +79,9 @@ export class CacheManager {
     const cache = this.getCache(namespace);
     const entry = cache.get(key);
 
-    if (!entry) return false;
+    if (!entry) {
+      return false;
+    }
 
     if (Date.now() - entry.timestamp > entry.ttl) {
       cache.delete(key);
@@ -109,7 +119,9 @@ export class CacheManager {
         }
       }
 
-      if (oldestKey) cache.delete(oldestKey);
+      if (oldestKey) {
+        cache.delete(oldestKey);
+      }
     } else if (this.config.strategy === 'lfu') {
       // Remove least frequently used
       let leastUsedKey: string | null = null;
@@ -122,11 +134,15 @@ export class CacheManager {
         }
       }
 
-      if (leastUsedKey) cache.delete(leastUsedKey);
+      if (leastUsedKey) {
+        cache.delete(leastUsedKey);
+      }
     } else {
       // FIFO - remove first inserted
       const firstKey = cache.keys().next().value;
-      if (firstKey) cache.delete(firstKey);
+      if (firstKey) {
+        cache.delete(firstKey);
+      }
     }
   }
 
@@ -145,7 +161,9 @@ export class CacheManager {
 
     for (const [ns, cache] of this.caches.entries()) {
       const stats = this.calculateStats(cache);
-      allStats.namespaces[ns] = stats;
+      if (allStats.namespaces) {
+        allStats.namespaces[ns] = stats;
+      }
       allStats.totalEntries += stats.totalEntries;
       allStats.totalSize += stats.totalSize;
     }
@@ -187,7 +205,7 @@ export class CacheManager {
 }
 
 interface CacheEntry {
-  value: any;
+  value: unknown;
   timestamp: number;
   ttl: number;
   hits: number;
@@ -242,7 +260,7 @@ export async function warmCache<T>(
         const data = await fetcher(key);
         cache.set(namespace, key, data);
       } catch (error) {
-        console.warn(`Failed to warm cache for ${namespace}:${key}`, error);
+        logger.warn(`Failed to warm cache for ${namespace}:${key}`, error);
       }
     }
   });

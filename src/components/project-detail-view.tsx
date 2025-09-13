@@ -1,8 +1,6 @@
-import Image from 'next/image';
-
 import BarChartComponent from './charts/bar-chart';
-import LineChartComponent from './charts/line-chart';
 import CircularProgressBar from './charts/circular-progress-bar';
+import LineChartComponent from './charts/line-chart';
 
 import type { CurateProjectsOutput } from '@/ai/flows/project-curation';
 
@@ -29,7 +27,7 @@ export default function ProjectDetailView({
     return (
       <div className='text-center text-gray-400 py-16'>
         <p className='text-2xl'>Search to curate project details</p>
-        <p>e.g., "Show me recent web development projects using React."</p>
+        <p>e.g., &ldquo;Show me recent web development projects using React.&rdquo;</p>
       </div>
     );
   };

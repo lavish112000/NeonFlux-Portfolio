@@ -1,17 +1,16 @@
 import {
-  CheckCircle,
-  Zap,
-  Code,
-  Wind,
-  BrainCircuit,
-  Flame,
-  Server,
+    BrainCircuit,
+    CheckCircle,
+    Code,
+    Flame,
+    Server,
+    Wind,
+    Zap,
 } from 'lucide-react';
 import Image from 'next/image';
 
 import CircularProgressBar from './charts/circular-progress-bar';
 
-import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const technologies = [

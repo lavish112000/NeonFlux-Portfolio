@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
+import { logger } from '@/lib/logger';
+
 interface ServiceWorkerState {
   isSupported: boolean;
   isRegistered: boolean;
@@ -13,7 +15,7 @@ interface ServiceWorkerState {
 export function useServiceWorker(): ServiceWorkerState & {
   update: () => void;
   clearCache: () => void;
-  getCacheStats: () => Promise<any>;
+  getCacheStats: () => Promise<Record<string, unknown>>;
 } {
   const [state, setState] = useState<ServiceWorkerState>({
     isSupported: false,
@@ -37,7 +39,7 @@ export function useServiceWorker(): ServiceWorkerState & {
           scope: '/',
         });
 
-        console.log('[SW] Registered:', registration);
+        logger.info('Service Worker registered:', registration);
 
         setState(prev => ({ ...prev, isRegistered: true }));
 
@@ -64,7 +66,7 @@ export function useServiceWorker(): ServiceWorkerState & {
         }
 
       } catch (error) {
-        console.error('[SW] Registration failed:', error);
+        logger.error('Service Worker registration failed:', error);
         setState(prev => ({
           ...prev,
           error: error instanceof Error ? error.message : 'Registration failed'
@@ -91,7 +93,7 @@ export function useServiceWorker(): ServiceWorkerState & {
     }
   };
 
-  const getCacheStats = async (): Promise<any> => {
+  const getCacheStats = async (): Promise<Record<string, unknown>> => {
     return new Promise((resolve) => {
       if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
         const channel = new MessageChannel();

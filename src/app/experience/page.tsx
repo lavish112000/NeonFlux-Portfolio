@@ -1,10 +1,11 @@
-import React from 'react';
-import Header from '@/components/header';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft, Briefcase, Calendar, MapPin, Award, TrendingUp, Users, Code, Database, Cloud } from 'lucide-react';
+import { ArrowLeft, Award, Briefcase, Calendar, Cloud, Code, Database, MapPin, TrendingUp, Users } from 'lucide-react';
 import Link from 'next/link';
+import React from 'react';
+
+import Header from '@/components/header';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
 const ExperiencePage: React.FC = () => {
@@ -211,7 +212,7 @@ const ExperiencePage: React.FC = () => {
           <Card className="glassmorphism-hover max-w-2xl mx-auto">
             <CardContent className="p-8">
               <Users className="h-12 w-12 mx-auto mb-4 text-primary animate-floating-orbs" />
-              <h3 className="text-2xl font-bold gradient-text-primary mb-4">Let's Work Together</h3>
+              <h3 className="text-2xl font-bold gradient-text-primary mb-4">Let&apos;s Work Together</h3>
               <p className="text-gray-300 mb-6">
                 Ready to bring your next work to life with cutting-edge technology and proven expertise?
               </p>

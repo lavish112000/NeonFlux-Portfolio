@@ -1,10 +1,10 @@
-import React from 'react';
 import { ArrowLeft, Github, Linkedin, Mail } from 'lucide-react';
 import Link from 'next/link';
+import React from 'react';
 
 import Header from '@/components/header';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const contactOptions = [
   {
@@ -45,7 +45,7 @@ const ContactPage: React.FC = () => {
               Get In Touch
             </CardTitle>
             <p className='text-gray-300 max-w-xl mx-auto pt-2'>
-              I'm always open to discussing new projects, creative ideas, or
+              I&apos;m always open to discussing new projects, creative ideas, or
               opportunities to be part of an amazing team. Feel free to reach
               out.
             </p>

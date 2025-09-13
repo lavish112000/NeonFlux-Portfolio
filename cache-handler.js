@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { CacheHandler } from '@neshca/cache-handler';
 import createLruHandler from '@neshca/cache-handler/local-lru';
 import createRedisHandler from '@neshca/cache-handler/redis-strings';
@@ -15,7 +16,7 @@ CacheHandler.onCreation(async () => {
     await client.connect();
     console.log('[Cache] Connected to Redis');
   } catch (error) {
-    console.log('[Cache] Redis not available, using LRU cache');
+    console.error('[Cache] Redis connection failed:', error);
     client = undefined;
   }
 

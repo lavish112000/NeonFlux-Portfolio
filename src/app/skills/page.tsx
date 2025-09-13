@@ -1,19 +1,20 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import Header from '@/components/header';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft, Code, Database, Cloud, Smartphone, Brain, Zap, Target, TrendingUp } from 'lucide-react';
+import { ArrowLeft, Brain, Cloud, Code, Database, Smartphone, Target, TrendingUp, Zap } from 'lucide-react';
 import Link from 'next/link';
+import React, { useEffect, useMemo, useState } from 'react';
+
+import Header from '@/components/header';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 
 const SkillsPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [animatedProgress, setAnimatedProgress] = useState<Record<string, number>>({});
 
-  const skillCategories = [
+  const skillCategories = useMemo(() => [
     {
       id: 'frontend',
       name: 'Frontend Development',
@@ -80,7 +81,7 @@ const SkillsPage: React.FC = () => {
         { name: 'Computer Vision', level: 65, experience: '1+ years', projects: 1 }
       ]
     }
-  ];
+  ], []);
 
   const tools = [
     { name: 'Git', category: 'Version Control', proficiency: 'Expert' },
@@ -107,7 +108,7 @@ const SkillsPage: React.FC = () => {
     }, 500);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [skillCategories]);
 
   const filteredCategories = activeCategory === 'all'
     ? skillCategories
@@ -289,7 +290,7 @@ const SkillsPage: React.FC = () => {
               <Zap className="h-12 w-12 mx-auto mb-4 text-accent animate-neon-pulse" />
               <h3 className="text-2xl font-bold gradient-text-primary mb-4">Ready to Innovate?</h3>
               <p className="text-gray-300 mb-6">
-                Let's collaborate on your next project and bring cutting-edge solutions to life.
+                Let&apos;s collaborate on your next project and bring cutting-edge solutions to life.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild className="btn-futuristic">

@@ -1,13 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
-import Header from '@/components/header';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft, ExternalLink, Github, Calendar, Users, Star, Eye, Code, Zap, Globe } from 'lucide-react';
-import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
+import { ArrowLeft, Calendar, Code, ExternalLink, Eye, Github, Globe, Star, Users, Zap } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
+import React, { useState } from 'react';
+
+import Header from '@/components/header';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const ProjectsPage: React.FC = () => {
   const [filter, setFilter] = useState('all');
@@ -337,7 +338,7 @@ const ProjectsPage: React.FC = () => {
               <Code className="h-12 w-12 mx-auto mb-4 text-primary animate-floating-orbs" />
               <h3 className="text-2xl font-bold gradient-text-primary mb-4">Have a Project in Mind?</h3>
               <p className="text-gray-300 mb-6">
-                Let's collaborate and bring your ideas to life with cutting-edge technology and innovative solutions.
+                Let&apos;s collaborate and bring your ideas to life with cutting-edge technology and innovative solutions.
               </p>
               <Button asChild className="btn-futuristic text-lg px-8 py-3">
                 <Link href="/contact">Start Your Project</Link>

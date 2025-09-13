@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Service Worker for caching static assets and API responses
 const CACHE_NAME = 'neonflux-v1';
 const STATIC_CACHE_NAME = 'neonflux-static-v1';
@@ -56,7 +57,9 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(request.url);
 
   // Skip non-GET requests
-  if (request.method !== 'GET') return;
+  if (request.method !== 'GET') {
+    return;
+  }
 
   // Handle API requests with network-first strategy
   if (API_ENDPOINTS.some(endpoint => url.pathname.startsWith(endpoint))) {

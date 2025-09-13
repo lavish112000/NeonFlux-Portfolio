@@ -1,19 +1,19 @@
 'use client';
 
-import { useState, useTransition } from 'react';
 import { Search } from 'lucide-react';
+import { useState, useTransition } from 'react';
 
 import ProjectDetailView from './project-detail-view';
+import ProjectDetails from './project-details';
 import ProjectGrid from './project-grid';
 import { Skeleton } from './ui/skeleton';
-import ProjectDetails from './project-details';
 
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { handleSearch } from '@/app/actions';
 import type { CurateProjectsOutput } from '@/ai/flows/project-curation';
-import { useToast } from '@/hooks/use-toast';
+import { handleSearch } from '@/app/actions';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { useDebouncedSearch } from '@/hooks/use-cache';
+import { useToast } from '@/hooks/use-toast';
 
 export default function ProjectsSection() {
   const [isPending, startTransition] = useTransition();
@@ -21,7 +21,7 @@ export default function ProjectsSection() {
   const { toast } = useToast();
 
   // Use debounced search with caching
-  const { results: searchResults, loading: searchLoading, search } = useDebouncedSearch(
+  const { search } = useDebouncedSearch(
     async (query: string) => {
       const formData = new FormData();
       formData.append('searchQuery', query);

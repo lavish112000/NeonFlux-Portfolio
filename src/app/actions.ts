@@ -1,9 +1,10 @@
 'use server';
 
 import {
-  curateProjects,
-  type CurateProjectsInput,
+    curateProjects,
+    type CurateProjectsInput,
 } from '@/ai/flows/project-curation';
+import { logger } from '@/lib/logger';
 
 export async function handleSearch(formData: FormData) {
   const searchQuery = formData.get('searchQuery');
@@ -17,7 +18,7 @@ export async function handleSearch(formData: FormData) {
     const result = await curateProjects(input);
     return result;
   } catch (error) {
-    console.error('AI curation failed:', error);
+    logger.error('AI curation failed:', error);
     return { error: 'Failed to curate projects.' };
   }
 }

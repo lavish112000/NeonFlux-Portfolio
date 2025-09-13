@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+
 import { componentCache } from '@/lib/cache';
+import { logger } from '@/lib/logger';
 
 // Hook for caching expensive computations
 export function useMemoCache<T>(
@@ -18,6 +20,7 @@ export function useMemoCache<T>(
     const result = factory();
     componentCache.set('memo', key, result, ttl);
     return result;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps)();
 }
 
@@ -58,6 +61,7 @@ export function useAsyncCache<T>(
     } finally {
       setLoading(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 
   useEffect(() => {
@@ -75,7 +79,7 @@ export function useAsyncCache<T>(
 // Hook for debounced search with caching
 export function useDebouncedSearch<T>(
   searchFn: (query: string) => Promise<T[]>,
-  debounceMs: number = 300
+  debounceMs = 300
 ): {
   results: T[];
   loading: boolean;
@@ -112,7 +116,7 @@ export function useDebouncedSearch<T>(
           componentCache.set('search', cacheKey, searchResults, 15 * 60 * 1000); // 15 minutes
           setResults(searchResults);
         } catch (error) {
-          console.error('Search failed:', error);
+          logger.error('Search failed:', error);
           setResults([]);
         } finally {
           setLoading(false);

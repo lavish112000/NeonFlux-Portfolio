@@ -9,9 +9,10 @@
  */
 
 import { z } from 'genkit';
-import { aiCache } from '@/lib/cache';
 
 import { ai } from '@/ai/genkit';
+import { aiCache } from '@/lib/cache';
+import { logger } from '@/lib/logger';
 
 const CurateProjectsInputSchema = z.object({
   searchQuery: z
@@ -31,35 +32,39 @@ export async function curateProjects(
   input: CurateProjectsInput
 ): Promise<CurateProjectsOutput> {
   // Check cache first
-  const cachedResult = aiCache.get(input);
+  const cachedResult = aiCache.get<CurateProjectsOutput>('projects', JSON.stringify(input));
   if (cachedResult) {
-    console.log(`[AI Cache] Hit for query: "${input.searchQuery}"`);
+    logger.info(`Cache hit for query: "${input.searchQuery}"`);
     return cachedResult;
   }
 
-  console.log(`[AI Cache] Miss for query: "${input.searchQuery}"`);
+  logger.info(`Cache miss for query: "${input.searchQuery}"`);
 
   try {
     const result = await curateProjectsFlow(input);
 
     // Cache the result
-    aiCache.set(input, result);
+    aiCache.set('projects', JSON.stringify(input), result);
 
     return result;
   } catch (error) {
-    console.error('[AI Cache] Error during AI call:', error);
+    logger.error('Error during AI call:', error);
     throw error;
   }
 }
 
 // Cache management functions
 export async function clearAICache(): Promise<void> {
-  aiCache.clear();
-  console.log('[AI Cache] Cache cleared');
+  aiCache.clear('projects');
+  logger.info('AI cache cleared');
 }
 
 export async function getAICacheStats(): Promise<{ size: number; totalHits: number }> {
-  return aiCache.getStats();
+  const stats = aiCache.getStats('projects');
+  return {
+    size: stats.totalEntries,
+    totalHits: stats.hitRate * stats.totalEntries, // Approximate total hits
+  };
 }
 
 const prompt = ai.definePrompt({
@@ -81,6 +86,9 @@ const curateProjectsFlow = ai.defineFlow(
   },
   async input => {
     const { output } = await prompt(input);
-    return output!;
+    if (!output) {
+      throw new Error('Failed to generate project curation output');
+    }
+    return output;
   }
 );

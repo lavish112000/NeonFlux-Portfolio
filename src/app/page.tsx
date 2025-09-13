@@ -1,10 +1,11 @@
+import { ArrowRight, Globe, Sparkles, Star, TrendingUp, Users, Zap } from 'lucide-react';
+import Link from 'next/link';
+
 import Header from '@/components/header';
 import HeroSection from '@/components/hero-section';
 import ProjectsSection from '@/components/projects-section';
-import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Sparkles, Zap, Globe, Users, Star, TrendingUp } from 'lucide-react';
-import Link from 'next/link';
+import { Card, CardContent } from '@/components/ui/card';
 
 export default function Home() {
   const stats = [
@@ -104,7 +105,7 @@ export default function Home() {
                     Ready to Bring Your Vision to Life?
                   </h2>
                   <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                    Let's collaborate on your next work and create something extraordinary together
+                    Let&apos;s collaborate on your next work and create something extraordinary together
                   </p>
                 </div>
 
