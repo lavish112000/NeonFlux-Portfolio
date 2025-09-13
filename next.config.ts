@@ -21,15 +21,14 @@ const nextConfig: NextConfig = {
 
   // Build caching and optimization
   experimental: {
-    // Enable build caching
-    incrementalCacheHandlerPath: require.resolve('./cache-handler.js'),
-    // Enable faster builds with turbopack
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
+  },
+
+  // Turbopack configuration
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
       },
     },
   },
