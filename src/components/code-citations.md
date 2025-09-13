@@ -1,10 +1,10 @@
 # Code Citations
 
-## License: MIT
+## License: MIT (RedMustard)
 
 <https://github.com/RedMustard/RedMustard.io/blob/02eca35e66730726469b099fed32960a271185b3/next.config.js>
 
-```
+```javascript
 {
     return [
       {
@@ -30,11 +30,11 @@
           {
 ```
 
-## License: GPL-3.0
+## License: GPL-3.0 (imranhsayed/nextjs-headless-wordpress)
 
 <https://github.com/imranhsayed/nextjs-headless-wordpress/blob/d38f3081d3cc3b487f263b557ba4a1c0cda7749f/frontend/next.config.js>
 
-```
+```javascript
 {
     return [
       {
@@ -64,7 +64,7 @@
 
 <https://github.com/winzeland/winzeland-landing/blob/985162c923d9f41a14c3663ca4429d0d1826532b/next.config.js>
 
-```
+```javascript
 {
     return [
       {
@@ -90,11 +90,11 @@
           {
 ```
 
-## License: MIT
+## License: MIT (navikt/pam-stillingsok)
 
 <https://github.com/navikt/pam-stillingsok/blob/b6e1a0ba01bec8a489ba7de4e6d7156d0449861d/cache-handler.mjs>
 
-```
+```javascript
 { CacheHandler } from '@neshca/cache-handler';
 import createLruHandler from '@neshca/cache-handler/local-lru';
 import createRedisHandler from '@neshca/cache-handler/redis-strings';
@@ -103,11 +103,11 @@ import { createClient } from 'redis';
 CacheHandler
 ```
 
-## License: GPL-3.0
+## License: GPL-3.0 (Vrooli/ui)
 
 <https://github.com/Vrooli/Vrooli/blob/106abc103a18ac75b7a37d10ea4a598967499c79/packages/ui/src/hooks/useDebounce.ts>
 
-```
+```typescript
 .current) {
       clearTimeout(timeoutRef.current);
     }
