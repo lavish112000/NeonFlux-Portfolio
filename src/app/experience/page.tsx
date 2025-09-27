@@ -11,10 +11,10 @@ import { Progress } from '@/components/ui/progress';
 const ExperiencePage: React.FC = () => {
   const experiences = [
     {
-      title: "Senior Software Developer Engineer",
-      company: "TechNova Solutions",
-      location: "San Francisco, CA",
-      period: "2022 - Present",
+      title: "Software Developer Engineer",
+      company: "Amazon",
+      location: ",Delhi, IN",
+      period: "2024 - Present",
       type: "Full-time",
       description: "Leading development of next-generation cloud-native applications, architecting scalable microservices, and mentoring junior developers.",
       achievements: [
@@ -28,9 +28,9 @@ const ExperiencePage: React.FC = () => {
     },
     {
       title: "Software Developer Engineer",
-      company: "InnovateLabs Inc.",
-      location: "Austin, TX",
-      period: "2020 - 2022",
+      company: "Auriga IT.",
+      location: "Jaipur, IN",
+      period: "2023 - 2024",
       type: "Full-time",
       description: "Developed full-stack web applications, implemented RESTful APIs, and collaborated on agile development teams.",
       achievements: [
