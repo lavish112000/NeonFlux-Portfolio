@@ -13,7 +13,7 @@ const ExperiencePage: React.FC = () => {
     {
       title: "Software Developer Engineer",
       company: "Amazon",
-      location: ",Delhi, IN",
+      location: "Delhi, IN",
       period: "2024 - Present",
       type: "Full-time",
       description: "Leading development of next-generation cloud-native applications, architecting scalable microservices, and mentoring junior developers.",
@@ -28,7 +28,7 @@ const ExperiencePage: React.FC = () => {
     },
     {
       title: "Software Developer Engineer",
-      company: "Auriga IT.",
+      company: "Auriga IT",
       location: "Jaipur, IN",
       period: "2023 - 2024",
       type: "Full-time",
